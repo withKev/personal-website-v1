@@ -16,16 +16,21 @@ body {
   height: 250px;
 }
 
-#nav-content {
-  border: 1px solid blue;
-  background-color: #7a9e7e;
-  position: fixed;
+#left-nav-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  background-color: #7a9e7e;
   height: 100vh;
   width: 325px;
+}
+
+#nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 35px;
   padding-left: 10px;
   padding-right: 10px;
@@ -43,24 +48,19 @@ a:hover {
 }
 
 #container {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-left: 410px;
-  padding-right: 64px;
+  padding-left: 346px;
 }
 
 .section {
-  border: 1px solid orange;
   opacity: 0;
-  height: 0;
   transition: opacity 0.5s ease, height 0.5s ease;
 }
 
 .section.active {
   opacity: 1;
-  height: auto;
 }
 
 .about-content,
@@ -70,13 +70,16 @@ a:hover {
 .interest-content,
 .contact-content {
   height: 100vh;
-}
-
-.about-content {
   display: flex;
   flex-direction: column;
   flex: 1;
   justify-content: center;
+  padding-left: 5em;
+  border-bottom: 2px solid rgb(208, 208, 208);
+}
+
+.section-title {
+  font-size: 4em;
 }
 
 .name {
