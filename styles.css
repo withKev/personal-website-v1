@@ -1,4 +1,5 @@
 body {
+  font-family: "Kanit", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -15,9 +16,10 @@ body {
   height: 250px;
 }
 
-#navLinks {
+#nav-content {
   border: 1px solid blue;
   background-color: #7a9e7e;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,14 +29,46 @@ body {
   gap: 35px;
   padding-left: 10px;
   padding-right: 10px;
-  font-size: 24px;
+  font-size: 1.5em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: default;
+}
+
+a:hover {
+  color: #2e4057;
 }
 
 #container {
   border: 1px solid red;
-  background-color: #f7f0f5;
   display: flex;
+  flex-direction: column;
   flex: 1;
+  padding-left: 410px;
+  padding-right: 64px;
+}
+
+.section {
+  border: 1px solid orange;
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.5s ease, height 0.5s ease;
+}
+
+.section.active {
+  opacity: 1;
+  height: auto;
+}
+
+.about-content,
+.experience-content,
+.skills-content,
+.portfolio-content,
+.interest-content,
+.contact-content {
   height: 100vh;
 }
 
@@ -43,5 +77,25 @@ body {
   flex-direction: column;
   flex: 1;
   justify-content: center;
-  padding: 40px;
+}
+
+.name {
+  font-size: 6em;
+  margin: 0;
+}
+
+.location {
+  margin: 0;
+}
+
+.email {
+  margin: 0;
+  color: #955e42;
+  font-weight: bold;
+}
+
+.introduction {
+  margin-top: 60px;
+  margin-bottom: 60px;
+  font-size: 1.5em;
 }
