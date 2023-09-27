@@ -18,7 +18,7 @@ function revealSections() {
     const sectionTop = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    if (sectionTop < windowHeight * 0.7) {
+    if (sectionTop < windowHeight * 0.5) {
       section.classList.add("active");
     }
   });
