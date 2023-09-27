@@ -1,0 +1,47 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#main {
+  display: flex;
+  height: 100vh;
+}
+
+#profilePicture {
+  border: 10px solid #2e4057;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
+#navLinks {
+  border: 1px solid blue;
+  background-color: #7a9e7e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 325px;
+  gap: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 24px;
+}
+
+#container {
+  border: 1px solid red;
+  background-color: #f7f0f5;
+  display: flex;
+  flex: 1;
+  height: 100vh;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  padding: 40px;
+}
