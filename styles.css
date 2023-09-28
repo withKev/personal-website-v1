@@ -4,16 +4,16 @@ body {
   margin: 0;
 }
 
-#main {
-  display: flex;
-  height: 100vh;
+img {
+  width: 100%;
 }
 
 #profilePicture {
-  border: 10px solid #2e4057;
+  border: 5px solid #2e4057;
   border-radius: 50%;
   width: 250px;
   height: 250px;
+  background-color: #2e4057;
 }
 
 #left-nav-bar {
@@ -31,7 +31,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 35px;
+  gap: 1.5em;
   padding-left: 10px;
   padding-right: 10px;
   font-size: 1.5em;
@@ -51,7 +51,8 @@ a:hover {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding-left: 346px;
+  padding-left: 325px;
+  height: 100vh;
 }
 
 .section {
@@ -75,7 +76,7 @@ a:hover {
   flex: 1;
   justify-content: center;
   padding-left: 5em;
-  border-bottom: 2px solid rgb(208, 208, 208);
+  padding-right: 5em;
 }
 
 .section-title {
@@ -98,7 +99,142 @@ a:hover {
 }
 
 .introduction {
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 3em;
+  margin-bottom: 3em;
   font-size: 1.5em;
+}
+
+#socialBtns {
+  display: flex;
+  gap: 0.75em;
+  font-size: 3em;
+  color: #2e4057;
+}
+
+.fa-brands:hover {
+  color: #4e6d95;
+  cursor: pointer;
+}
+
+.mobile-profile-pic {
+  display: none;
+  text-align: center;
+  justify-content: center;
+}
+
+.floating-button-div {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+}
+
+.fb {
+  background-color: #7a9e7e;
+  color: #2e4057;
+  border: none;
+  border-radius: 50%;
+  padding: 14px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px #3c3c3c80;
+}
+
+@media (max-width: 400px) {
+  #left-nav-bar {
+    display: none;
+  }
+
+  .mobile-profile-pic {
+    display: inline;
+    margin-bottom: 2em;
+  }
+
+  .name {
+    font-size: 2.7em;
+  }
+
+  .location,
+  .email {
+    font-size: 1em;
+  }
+
+  .introduction {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    font-size: 1.3em;
+  }
+
+  #container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .about-content,
+  .experience-content,
+  .skills-content,
+  .portfolio-content,
+  .interest-content,
+  .contact-content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  #socialBtns {
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+
+  .floating-button-div {
+    display: inline;
+  }
+}
+
+@media (orientation: landscape) {
+  #left-nav-bar {
+    width: 150px;
+  }
+
+  #profilePicture {
+    width: 100px;
+    height: 100px;
+  }
+
+  #nav-content {
+    gap: 0.5em;
+    font-size: 1.2em;
+  }
+
+  #container {
+    padding-left: 150px;
+    padding-right: 0px;
+  }
+
+  .name {
+    font-size: 4em;
+  }
+
+  .location,
+  .email {
+    font-size: 1.25em;
+  }
+
+  .introduction {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .about-content,
+  .experience-content,
+  .skills-content,
+  .portfolio-content,
+  .interest-content,
+  .contact-content {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  .floating-button-div {
+    display: inline;
+  }
 }
