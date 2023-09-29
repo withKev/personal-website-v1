@@ -27,6 +27,8 @@ function revealSections() {
 // Initially reveal sections that are in the viewport on page load
 revealSections();
 
+/* BOTTOM RIGHT SCROLL BUTTON */
+
 const floatingButton = document.querySelector(".fb");
 let currentSectionIndex = 0;
 
@@ -60,3 +62,30 @@ floatingButton.addEventListener("click", function () {
     currentSectionIndex = 0;
   }
 });
+
+/* SHOW AND HIDE MENU */
+
+const navMenu = document.getElementById("nav-menu");
+const navToggle = document.getElementById("nav-toggleBtn");
+const navClose = document.getElementById("nav-closeBtn");
+
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    navMenu.classList.add("show-menu");
+  });
+}
+
+if (navClose) {
+  navClose.addEventListener("click", () => {
+    navMenu.classList.remove("show-menu");
+  });
+}
+
+const navLink = document.querySelectorAll(".nav-link");
+
+const linkAction = () => {
+  const navMenu = document.getElementById("nav-menu");
+  navMenu.classList.remove("show-menu");
+};
+
+navLink.forEach((n) => n.addEventListener("click", linkAction));
