@@ -195,6 +195,7 @@ a:visited {
 @media (max-width: 700px) {
   .header {
     display: inline;
+    padding-top: env(safe-area-inset-top);
   }
 
   .nav-menu {
@@ -310,8 +311,8 @@ a:visited {
   }
 
   #container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .about-content,
@@ -361,6 +362,11 @@ a:visited {
   .nav-logo-name {
     font-size: 1.2rem;
     font-weight: semi-bold;
+  }
+
+  .nav {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
   }
 
   .nav-name::after,
@@ -415,7 +421,7 @@ a:visited {
     position: absolute;
     font-size: 1.5rem;
     top: 1rem;
-    right: 1.5rem;
+    right: 3em;
     cursor: pointer;
   }
 
@@ -440,8 +446,9 @@ a:visited {
   }
 
   #container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   .name,
