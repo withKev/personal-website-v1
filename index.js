@@ -1,4 +1,5 @@
-// Smooth scroll to anchor links
+/* SMOOTHLY SCROLLS TO SELECTED SECTIONS */
+
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -9,14 +10,16 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+/* REVEALS SECTIONS WHEN 50% IN-VIEW */
+
 const sections = document.querySelectorAll(".section");
 
 window.addEventListener("scroll", revealSections);
 
 function revealSections() {
   sections.forEach((section) => {
-    const sectionTop = section.getBoundingClientRect().top;
-    const windowHeight = window.innerHeight;
+    const sectionTop = section.getBoundingClientRect().top; // Calculates distance between TOP of viewport to TOP of section
+    const windowHeight = window.innerHeight; // Calculates height of viewport AKA usable screen
 
     if (sectionTop < windowHeight * 0.5) {
       section.classList.add("active");
@@ -24,23 +27,52 @@ function revealSections() {
   });
 }
 
-// Initially reveal sections that are in the viewport on page load
+/* INITIALLY REVEALS SECTION IN-VIEW */
+
 revealSections();
 
-/* BOTTOM RIGHT SCROLL BUTTON */
+/* KEEPS TRACK OF WHICH SECTION THE USER IS LOOKING AT */
 
-const floatingButton = document.querySelector(".fb");
 let currentSectionIndex = 0;
+const floatingButton = document.querySelector(".fb");
 
-floatingButton.addEventListener("click", function () {
+function updateCurrentSectionIndex() {
+  for (let i = 0; i < sections.length; i++) {
+    updateFloatingButtonIcon();
+    const section = sections[i];
+    const rect = section.getBoundingClientRect();
+
+    // Check if more than 50% of the section is in the viewport
+    if (
+      rect.top <= window.innerHeight / 2 &&
+      rect.bottom >= window.innerHeight / 2
+    ) {
+      currentSectionIndex = i;
+      break;
+    }
+  }
+}
+
+window.addEventListener("scroll", updateCurrentSectionIndex);
+
+updateCurrentSectionIndex();
+
+function updateFloatingButtonIcon() {
   const nextSectionIndex = currentSectionIndex + 1;
-  if (nextSectionIndex === sections.length - 1) {
+
+  if (nextSectionIndex === sections.length) {
     floatingButton.classList.remove("fa-caret-down");
     floatingButton.classList.add("fa-caret-up");
   } else {
     floatingButton.classList.remove("fa-caret-up");
     floatingButton.classList.add("fa-caret-down");
   }
+}
+
+/* BOTTOM RIGHT SCROLL BUTTON */
+
+floatingButton.addEventListener("click", () => {
+  const nextSectionIndex = currentSectionIndex + 1;
 
   if (nextSectionIndex < sections.length) {
     const nextSection = sections[nextSectionIndex];
@@ -90,14 +122,14 @@ const linkAction = () => {
 
 navLink.forEach((n) => n.addEventListener("click", linkAction));
 
-/* SET ACTIVE LINKS */
+/* SET ACTIVE LINKS FOR EFFECT */
 
-const allSections = document.querySelectorAll("section[id]");
+const allSectionIds = document.querySelectorAll("section[id]");
 
 const scrollActive = () => {
   const scrollDown = window.scrollY;
 
-  allSections.forEach((current) => {
+  allSectionIds.forEach((current) => {
     const sectionHeight = current.offsetHeight,
       sectionTop = current.offsetTop - 58,
       sectionId = current.getAttribute("id"),
